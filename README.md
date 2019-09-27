@@ -64,4 +64,28 @@ saver.save(sess, './model.ckpt')
 ```
 
 最后你可以得到这么四个文件：
-![image]()
+![image](https://github.com/tztgogo/MIT-final/blob/master/屏幕快照%202019-09-27%20下午6.22.22.png)
+
+### 读取模型：
+首先我们需要对图片进行处理，将其转换为28*28的向量：
+
+```python
+def image_prepare(image_path):
+    img = Image.open(image_path)
+    im = img.resize((28, 28), Image.ANTIALIAS)
+    im = im.convert('L')
+    tv = list(im.getdata()) 
+    tva = [(255-x)*1.0/255.0 for x in tv] 
+    
+    
+    return tva
+```
+
+然后用这么一行代码读取模型：
+
+```python
+saver.restore(sess, "./model.ckpt")
+```
+
+最后得到一个预测结果
+
