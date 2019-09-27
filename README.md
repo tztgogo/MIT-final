@@ -19,47 +19,47 @@ mnist算法实际上是Lenet5神经网络算法，其中包含两个卷积层，
 ### 运行mnist模型：
 首先是mnist的模型部分：
 
-'''python
+```python
 y_conv = tf.matmul(h_fc1_drop, W_fc2) + b_fc2
-'''
+```
 
 然后是mnist的测试部分：
 首先打开一个tensorflow操作面：
 
-'''python
+```python
 with tf.Session() as sess
-'''
+```
 
 然后给定操作步长：
 
-'''python
+```python
 batch = mnist.train.next_batch(50)
-'''
+```
 
 然后开始正式训练：
 
-'''python
+```python
 train_accuracy = accuracy.eval(feed_dict={x: batch[0], y_: batch[1], keep_prob: 1.0})
 train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
-'''
+```
 最后返回一个模型准确率：
 
-'''python
+```python
 print('test accuracy %g' % accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0}))
-'''
+```
 
 ### 保存模型部分：
 保存模型的代码：
 
-'''python
+```python
 saver = tf.train.Saver()
-'''
+```
 
 其保存的路径和文件的名称：
 
-'''python
+```python
 saver.save(sess, './model.ckpt')
-'''
+```
 
 最后你可以得到这么四个文件：
-![image]()
+![image](屏幕快照 2019-09-27 下午6.21.51.png)
