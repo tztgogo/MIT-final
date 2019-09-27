@@ -48,6 +48,8 @@ train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
 print('test accuracy %g' % accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0}))
 ```
 
+![image](https://github.com/tztgogo/MIT-final/blob/master/屏幕快照%202019-09-27%20下午6.21.51.png)
+
 ### 保存模型部分：
 保存模型的代码：
 
@@ -62,4 +64,4 @@ saver.save(sess, './model.ckpt')
 ```
 
 最后你可以得到这么四个文件：
-![image](屏幕快照 2019-09-27 下午6.21.51.png)
+![image]()
